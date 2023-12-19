@@ -90,7 +90,7 @@
   }
 }
 
-button {
+.button123 {
   font-family: inherit;
   border: none;
   outline: 1px dotted rgb(37, 37, 37);
@@ -103,7 +103,7 @@ button {
   padding: 5px 30px;
 }
 
-button:active {
+.button123:active {
   box-shadow: inset -1px -1px #fff, inset 1px 1px #292929, inset -2px -2px #ffffff, inset 2px 2px rgb(158, 158, 158);
 }
 .bgg{

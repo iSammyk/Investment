@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 // import { MdErrorOutline } from "react-icons/md";
 
 const Signup = () => {
+
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   // const [phoneNumber, setPhoneNumber] = useState('');
@@ -23,20 +24,35 @@ const Signup = () => {
       country: "",
       phone: ""
     },
-    validationSchema: yup.object({
-      firstName: yup.string().required("input your first name"),
-      lastName: yup.string().required("input your last name"),
+    // validationSchema: yup.object({
+    //   firstName: yup.string().required("input your first name"),
+    //   lastName: yup.string().required("input your last name"),
+    //   email: yup.string().email("must be a valid email").required("email can not be empty"),
+    //   password: yup.string().min(7, "password is too short").max(17, "password is too long").required("password can not be empty"),
+    //   confirmPassword: yup.string().required("confirm your password"),
+    //   country: yup.string().required("select your current location"),
+    //   phone: yup.string().min(8, "must be a valid number").required("add your active phone number")
+    // }),
+     validationSchema : yup.object({
+      firstName: yup.string().min(2, "please input your full name").required("input your first name"),
+      lastName: yup.string().min(2, "please input your full name").required("input your last name"),
       email: yup.string().email("must be a valid email").required("email can not be empty"),
-      password: yup.string().min(7, "password is too short").max(17, "password is too long").required("password can not be empty"),
-      confirmPassword: yup.string().required("confirm your password"),
-      country: yup.string().required("select your current location"),
-      phone: yup.string().min(8, "must be a valid number").required("add your active phone number")
+      password: yup
+        .string()
+        .min(7, "password is too short")
+        .max(17, "password is too long")
+        .required("please add a password"),
+      confirmPassword: yup
+        .string()
+        .oneOf([yup.ref('password'), null], 'Passwords must match')
+        .required("please confirm password"),
+      phone: yup.string().min(8, "must be a valid number").required("add a phone number"),
     }),
-    onSubmit: (value) => {
-      console.log(value);
-      alert("hello")
-    }
-  })
+    onSubmit: async (values) => {
+      alert("hello"); 
+      console.log(values); 
+    },
+  });
 
 
 
@@ -71,13 +87,14 @@ const Signup = () => {
 
   return (
     <>
-      <div className='bg-light shadow-lg p-3 py-3 position-fixed top-0 w-100 navr'>
+      <div className='bg-light shadow-lg p-3 py-3 position-sticky top-0 w-100 navr'>
         <h3>Green(logo)</h3>
       </div>
       <div className='vons'>
         <div className='hola shadow-lg rounded-2'>
           <h2 className='text-center doe'>Create Account</h2>
-          <form action="" onSubmit={formik.handleSubmit}>
+
+         <form action="" onSubmit={formik.handleSubmit}>
             <div className='dof1'>
               <div className='dof'>
                 <div className="form__group field">
@@ -202,7 +219,6 @@ const Signup = () => {
               </div>
             </div>
 
-            {/* Country select */}
             <div className='form__group field'>
               <label htmlFor='country' className='form__label'>
                 Country
@@ -218,14 +234,13 @@ const Signup = () => {
               />
             </div>
 
-
             <div className='d-flex justify-content-center align-items-center'>
-              <button className="button my-2 mt-4 w-100" type='button'>
-                Sign Up
-                <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                  <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
-                </svg>
-              </button>
+              <button className="button my-2 mt-4 w-100" type="submit">
+              Sign Up
+              <svg fill="currentColor" viewBox="0 0 24 24" className="icon">
+                <path clipRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fillRule="evenodd"></path>
+              </svg>
+            </button>
             </div>
 
             <div className='sigg my-2'>

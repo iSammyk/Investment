@@ -20,7 +20,7 @@ const ConfirmEmail = () => {
                         </div>
 
                         <div className='bgg'>  
-                            <button className=' w-100'>Confirmed Email?</button>
+                            <button className='button123 w-100'>Confirmed Email?</button>
                         </div>
                     </div>
                 </div>

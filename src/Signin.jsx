@@ -21,8 +21,8 @@ const Signin = () => {
       password: yup.string().required("password can not be empty"),
     }),
     onSubmit: (value) => {
-      console.log(value);
-      alert("hello")
+            alert("hello")
+        console.log(value);
     }
   })
 
@@ -33,15 +33,16 @@ const Signin = () => {
 
   return (
     <>
-      <div className='bg-light shadow-lg p-3 py-3 position-fixed top-0 w-100 navr'>
+      <div className='bg-light shadow-lg p-3 py-3 position-sticky top-0 w-100 navr'>
         <h3>Green(logo)</h3>
       </div>
       <div className='vons pb-5 '>
         <div className='hola shadow-lg rounded-2'>
           <h2 className='text-center doe'>Welcome Back</h2>
-          <form action="" onSubmit={formik.handleSubmit}>
+         
 
-            <div className="form__group field">
+          <form action="" onSubmit={formik.handleSubmit}>
+          <div className="form__group field">
               <input
                 type="input"
                 className="form__field"
@@ -78,7 +79,7 @@ const Signin = () => {
           
 
             <div className='d-flex justify-content-center align-items-center'>
-              <button className="button my-2 mt-4 w-100" type='button'>
+              <button className="button my-2 mt-4 w-100" type='submit'>
                 Sign in
                 <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
                   <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
@@ -89,6 +90,7 @@ const Signin = () => {
             <div className='sigg my-2'>
               <b>Are you a new user? <Link to="/signup"><a href="">Create account</a></Link></b>
             </div>
+
           </form>
 
           <div className='d-flex align-items-center justify-content-around'>
