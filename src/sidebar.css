@@ -1,0 +1,141 @@
+.navr{
+    background-color: #81a5a1;
+}
+.flexor{
+    margin-left: 60px;
+    width: 100%;
+}
+.marg{
+    height: 100vh;
+    background-color: white;
+}
+.stem{
+    height: 100vh;
+    position: fixed;
+    top: 1;
+    left: 0;
+}
+
+.balance-icon {
+    font-size: 36px;
+    color: #3498db;
+    margin-bottom: 10px;
+  }
+
+  .balance-card {
+    /* ... (existing styles) */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .balance-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+/* Dashboard styles */
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .header {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .balance-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .balance-card {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .balance-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .balance-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #74b8a0;
+  }
+  
+
+
+
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+}
+.container{
+    display:flex;
+}
+main{
+    width: 100%;
+    padding: 20px;
+}
+.sidebar{
+    background: #81a5a1;
+    color: #fff;
+    height: 100vh;
+    width: 200px;
+    /* transition: all 0.3s linear; */
+}
+.top_section{
+    display: flex;
+    align-items:center;
+    padding:20px 15px;
+}
+.logo{
+    font-size: 30px;
+}
+.bars{
+    display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+    cursor: pointer;
+    font-size: 30px;
+    color: black;
+}
+.link{
+    display: flex;
+    color: #fff;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+.link:hover{
+    background:lightskyblue;
+    color: #000;
+    transition: all 0.5s;
+}
+.active{
+    background: lightskyblue;
+    color: #000;
+}
+.icon, .link_text{
+    font-size: 20px;
+}

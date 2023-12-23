@@ -4,6 +4,7 @@ import Select from 'react-select';
 import { useFormik } from 'formik';
 import * as yup from 'yup'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 // import { MdErrorOutline } from "react-icons/md";
 
 const Signup = () => {
@@ -13,6 +14,9 @@ const Signup = () => {
   // const [phoneNumber, setPhoneNumber] = useState('');
   const [isVisible, setvisible] = useState(true)
   const [isConVisible, setConvisible] = useState(true)
+  const [data, setdata] = useState([])
+
+
 
   const formik = useFormik({
     initialValues: {
@@ -24,16 +28,8 @@ const Signup = () => {
       country: "",
       phone: ""
     },
-    // validationSchema: yup.object({
-    //   firstName: yup.string().required("input your first name"),
-    //   lastName: yup.string().required("input your last name"),
-    //   email: yup.string().email("must be a valid email").required("email can not be empty"),
-    //   password: yup.string().min(7, "password is too short").max(17, "password is too long").required("password can not be empty"),
-    //   confirmPassword: yup.string().required("confirm your password"),
-    //   country: yup.string().required("select your current location"),
-    //   phone: yup.string().min(8, "must be a valid number").required("add your active phone number")
-    // }),
-     validationSchema : yup.object({
+    
+    validationSchema : yup.object({
       firstName: yup.string().min(2, "please input your full name").required("input your first name"),
       lastName: yup.string().min(2, "please input your full name").required("input your last name"),
       email: yup.string().email("must be a valid email").required("email can not be empty"),
@@ -49,8 +45,18 @@ const Signup = () => {
       phone: yup.string().min(8, "must be a valid number").required("add a phone number"),
     }),
     onSubmit: async (values) => {
-      alert("hello"); 
-      console.log(values); 
+      const user = data.find(some=> some.email === values.email)
+      if(user){
+        alert("user already exists")
+      }else{
+        axios.post("http://invest-cq0d.onrender.com/users/register", values)
+        .then((response)=>{
+          console.log(response.data);
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+      }
     },
   });
 
